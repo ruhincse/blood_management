@@ -20,18 +20,31 @@ if(isset($_POST['login'])) {
 		if($result>0){
 			if(password_verify($password, $result['password'])){
 
+				if($result['mail_status']==0){
+				notification("Please Verified Your Mail",'danger');			
+				redirect('login');
+				}
+
 				$_SESSION["id"]=$result['id'];
 				$_SESSION["email"]=$result['email'];
 				$_SESSION["role"]=$result['role'];
-				
+				notification("You are  logged in");			
 				redirect('dashboard');
 			}
 			else{
-				echo "Invalid password";
+
+
+			    notification("Invalid password");			
+				redirect('login');
+
+				
 			}
 		}
 		else{
-			echo "email dosen't exists";
+
+			notification("email dosen't exists");			
+				redirect('login');
+			
 		}
 
 

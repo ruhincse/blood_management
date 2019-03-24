@@ -109,6 +109,7 @@ $id=$_SESSION['id'];
 		$result=$stmt->rowCount();
 
 		if($result>0){
+			notification('Your Profile updated');
 
 		redirect('dashboard');
 

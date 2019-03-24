@@ -18,6 +18,15 @@ if(!is_login()){
         $stmt->bindParam(":id",$id);      
         $stmt->execute();
         $result=$stmt->fetch();
+
+
+
+//district
+$query="Select * from  districts  order by name ";
+
+$stmt=$connect->query($query);
+$stmt->execute();
+$district=$stmt->fetchAll();
 ?>
 
 
@@ -61,28 +70,27 @@ if(!is_login()){
                                 </select>
                             </div>
 
-                             <div class="form-group" >
-                                <select name="district"  class="form-control" >
-                                    <option value="">Select District</option>     
-                                    <option value="Dhaka">Dhaka</option>     
+                             
+                                    <div class="form-group">
+                                            <select name="district"  class="form-control" >
+                                    <option value="" >District</option>      
+                                    <?php foreach($district as $district){?>  
 
-                                                  
-                                                                         
+                                    <option value="<?php echo $district['id']?>"><?php echo ucfirst($district['name'])?></option>                                    
+                                    
+                                               <?php  }    ?>                     
                                                                        
                                 </select>
-                            </div>
+                                   
+                                </div>
 
-
-                             <div class="form-group" >
-                                <select name="thana"  class="form-control" >
-                                    <option value="">Select Thana</option>     
-                                    <option value="Dhaka">Dhaka</option>     
-
-                                                  
-                                                                         
+                               
+                                    <div class="form-group">
+                                  <select name="thana"  class="form-control" >
+                                    <option value="" >Select Thana</option>                          
                                                                        
                                 </select>
-                            </div>
+                                    </div>
 
 
                             <div class="form-group" >
@@ -120,6 +128,48 @@ if(!is_login()){
     </div>
   </section>
 
+
+<script type="text/javascript"> 
+
+        $('document').ready(function(){
+
+            $('select[name="district"]').on('change',function(){
+                var district=$(this).val();
+                    if(district){
+                        //console.log(district);
+
+                        $.ajax({
+                            url:"showthana.php",
+                            type:"get", 
+
+                             dataType:"Json",
+                            data:{'id':district},
+                            success:function(data){
+                               
+                               
+                                $('select[name="thana"]').empty();
+                                    $.each(data, function(key, value) {
+                                        $('select[name="thana"]').append('<option value="'+ key +'">'+ value.name +'</option>');
+                                    });
+                            }
+
+
+                        });
+                    }
+                
+
+
+
+
+
+            })
+
+
+
+
+        })
+
+</script>
 <?php 
     require_once"partial/fotter.php";
 ?>

@@ -38,8 +38,7 @@ if(!isset($_POST['search'])){
                               <th scope="col">Name</th>
                               <th scope="col">Email</th>
                               <th scope="col">Blood Group</th>
-                              <th scope="col">Location</th>
-                    
+                                            
                               <th scope="col">Mobile</th>
                             </tr>
                           </thead>
@@ -55,7 +54,7 @@ if(!isset($_POST['search'])){
                               <td><?php echo $result['name']?></td>
                               <td><?php echo $result['email']?></td>
                               <td><?php echo $result['blood']?></td>
-                              <td><?php echo $result['district']. ",".$result['thana'] ?></td>
+                            
                               <td><?php echo $result['mobile'] ?></td>
                          
                              

@@ -45,6 +45,17 @@ if(!function_exists('is_login')){
 		}
 	}
 
+	if(!function_exists('notification')){
+		function notification($message,$type="success"){
+			$_SESSION['message']=$message;
+			$_SESSION['type']=$type;
+
+		
+
+
+		}
+	}
+
 
 
 

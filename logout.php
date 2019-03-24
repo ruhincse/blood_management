@@ -5,8 +5,9 @@
 
  unset($_SESSION);
  session_destroy();
-
+notification('Logout',"danger");
  redirect('login');
+
 
 
 ?>

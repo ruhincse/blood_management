@@ -653,7 +653,7 @@ $district=$stmt->fetchAll();
             $('select[name="district"]').on('change',function(){
                 var district=$(this).val();
                     if(district){
-                        console.log(district);
+                        //console.log(district);
 
                         $.ajax({
                             url:"showthana.php",
@@ -662,7 +662,7 @@ $district=$stmt->fetchAll();
                              dataType:"Json",
                             data:{'id':district},
                             success:function(data){
-                               // console.log(data);
+                               
                                
                                 $('select[name="thana"]').empty();
                                     $.each(data, function(key, value) {

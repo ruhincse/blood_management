@@ -28,6 +28,7 @@ if(!is_login()){
         <div class="row">
        
             <div class="panel panel-default">
+              <?php require_once('partial/message.php')?>
                 <div class="panel-heading">
                         <h3 class="panel-title">User Information</h3>
                         </div>
@@ -38,7 +39,7 @@ if(!is_login()){
                               <th scope="col">Name</th>
                               <th scope="col">Email</th>
                               <th scope="col">Blood Group</th>
-                              <th scope="col">Location</th>
+                              <th scope="col">Mobile</th>
                               <th scope="col">Image</th>
                               <th scope="col">Action</th>
                             </tr>
@@ -49,7 +50,7 @@ if(!is_login()){
                               <td><?php echo $result['name']?></td>
                               <td><?php echo $result['email']?></td>
                               <td><?php echo $result['blood']?></td>
-                              <td><?php echo $result['district']. ",".$result['thana'] ?></td>
+                              <td><?php echo $result['mobile'] ?></td>
                               <td><img src="<?php echo $result['image']?>" height="150" width="150" /> </td>
                               <td>
 

@@ -17,6 +17,7 @@ $district=$stmt->fetchAll();
         
          <div class="container">
         <div class="row centered-form">
+             <?php require_once('partial/message.php')?>
         <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -32,6 +33,12 @@ $district=$stmt->fetchAll();
                                 </div>
                                 
                             </div>
+
+                                 <div class="form-group">
+                            <input type="number" name="mobile" id="mobile" class="form-control input-sm" placeholder="Mobile Number" required>
+                                    </div>
+                                </div>
+
 
                             <div class="form-group">
                                 <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address" required>
