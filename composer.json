@@ -1,0 +1,15 @@
+{
+    "name": "asus/blood_donation",
+    "authors": [
+        {
+            "name": "ruhincse",
+            "email": "ruhinm3@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload":{
+    	"files":[
+    		"helper/function.php"
+    	]
+    }
+}
